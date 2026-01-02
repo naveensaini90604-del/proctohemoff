@@ -123,119 +123,9 @@
       }
     }
 
-    .topline{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom: 10px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      min-width: 0;
-    }
-    .logo-dot{
-      width:12px; height:12px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.92);
-      box-shadow: 0 0 0 6px rgba(255,255,255,.08);
-      flex: 0 0 auto;
-    }
     .brand-title{
       font-weight:700;
-      letter-spacing:.2px;
-      font-size: 14px;
-      line-height: 1.1;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .close-btn{
-      width:40px; height:40px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.06);
-      color: rgba(255,255,255,.9);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      transition: transform .15s ease, background .15s ease;
-      flex: 0 0 auto;
-    }
-
-    .title{
-      font-size: 18px;
-      font-weight: 700;
-      margin: 0 0 6px;
-    }
-    .desc{
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.45;
-    }
-
-    .prefs{
-      margin-top: 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-      overflow:hidden;
-    }
-
-    .prefs-head{
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding: 12px 12px;
-      cursor:pointer;
-      user-select:none;
-      color: rgba(255,255,255,.90);
-      font-weight: 600;
-      font-size: 13px;
-    }
-
-    .prefs-body{ max-height:0; overflow:hidden; }
-    .prefs.open .prefs-body{ max-height:240px; }
-
-    .pref-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding: 10px 12px;
-      border-top: 1px solid rgba(255,255,255,.10);
-    }
-
-    .pref-row p{ margin:0; font-size:12.5px; }
-    .pref-row small{ display:block; font-size:11px; color:rgba(255,255,255,.62); }
-
-    .meta{
-      margin-top: 10px;
-      font-size: 11px;
-      color: rgba(255,255,255,.62);
-      line-height: 1.35;
-    }
-
-    .actions{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-
-    .btn{
-      width:100%;
-      border-radius: 16px;
-      padding: 12px 14px;
-      font-weight:700;
-      text-align:center;
-      text-decoration:none;
+      font-size:14px;
     }
   </style>
 </head>
@@ -246,7 +136,7 @@
 
     <a class="overlay" id="overlay" href="#" aria-label="Kliknięcie tła"></a>
 
-    <section class="cookie-modal" id="cookieModal" aria-label="Preferencje plików cookie">
+    <section class="cookie-modal" id="cookieModal" role="dialog" aria-modal="true" aria-label="Preferencje plików cookie">
       <div class="modal-inner">
 
         <div>
@@ -261,37 +151,20 @@
 
           <h2 class="title">Używamy plików cookie, aby poprawić Twoje doświadczenie</h2>
           <p class="desc">
-            Pliki cookie pomagają nam personalizować treści, analizować korzystanie z serwisu
+            Pliki cookie pomagają nam personalizować treści, analizować sposób korzystania z serwisu
             oraz poprawiać jego działanie. Możesz zaakceptować wszystkie pliki cookie
             lub zarządzać swoimi preferencjami w dowolnym momencie.
           </p>
 
-          <div class="prefs" id="prefs">
-            <div class="prefs-head" id="prefsHead">
-              <span>Zarządzaj preferencjami</span>
+          <div class="prefs">
+            <div class="pref-row">
+              <p>Niezbędne</p>
             </div>
-
-            <div class="prefs-body" id="prefsBody">
-              <div class="pref-row">
-                <div>
-                  <p>Niezbędne</p>
-                  <small>Niezbędne do prawidłowego działania strony.</small>
-                </div>
-              </div>
-
-              <div class="pref-row">
-                <div>
-                  <p>Analityczne</p>
-                  <small>Pomagają nam zrozumieć, jak użytkownicy korzystają z witryny.</small>
-                </div>
-              </div>
-
-              <div class="pref-row">
-                <div>
-                  <p>Marketingowe</p>
-                  <small>Wykorzystywane do wyświetlania dopasowanych reklam.</small>
-                </div>
-              </div>
+            <div class="pref-row">
+              <p>Analityczne</p>
+            </div>
+            <div class="pref-row">
+              <p>Marketingowe</p>
             </div>
           </div>
 
@@ -302,8 +175,8 @@
         </div>
 
         <div class="actions">
-          <a class="btn" id="acceptAll" href="#">Akceptuj wszystkie</a>
-          <a class="btn secondary" id="acceptSelected" href="#">Akceptuj wybrane</a>
+          <a class="btn" id="acceptAll" href="#">Zaakceptuj wszystkie</a>
+          <a class="btn secondary" id="acceptSelected" href="#">Zaakceptuj wybrane</a>
           <a class="btn ghost" id="rejectAll" href="#">Odrzuć nieistotne</a>
         </div>
 
